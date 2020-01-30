@@ -1,20 +1,42 @@
 import Link from "next/link";
 
-const linkStyle = {
-    marginRight: 15
-};
-
 const Header = () => (
-    <div>
-        <Link href="/">
-            <a style={linkStyle}>Home</a>
-        </Link>
-        <Link href="/about">
-            <a style={linkStyle}>About</a>
-        </Link>
-        <Link href="/blog">
-            <a style={linkStyle}>Blog</a>
-        </Link>
+    <div className="navbar__">
+        <div className="linkitem__">
+            <Link href="/">
+                <a>Home</a>
+            </Link>
+        </div>
+        <div className="linkitem__">
+            <Link href="/about">
+                <a>About</a>
+            </Link>
+        </div>
+        <div className="linkitem__">
+            <Link href="/blog">
+                <a>Blog</a>
+            </Link>
+        </div>
+        <style jsx>{`
+            .navbar__ {
+                width: 105vw;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 1rem;
+                margin: -0.5rem;
+                text-decoration: none;
+            }
+
+            .linkitem__ {
+                padding-left: 0.5rem;
+                padding-right: 2rem;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        `}</style>
     </div>
 );
 

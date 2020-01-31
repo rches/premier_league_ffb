@@ -5,11 +5,15 @@ const Layout = props => (
         <Header />
         {props.children}
         <style jsx global>{`
-            @import url("https://fonts.googleapis.com/css?family=Noto+Serif+SC:500,700&display=swap");
+            @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600&display=swap");
+
             body {
-                font-family: "Noto Serif SC";
-                font-weight: 700;
-                overflow: hidden;
+                font-family: "Muli", sans-serif;
+                overflow-x: hidden;
+
+                 {
+                    /* background: #1f1f1f; */
+                }
             }
         `}</style>
     </div>

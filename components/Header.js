@@ -19,18 +19,16 @@ const Header = () => (
         </div>
         <style jsx>{`
             .navbar__ {
-                width: 105vw;
+                width: 100vw;
                 display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
-                padding: 1rem;
-                margin: -0.5rem;
+                justify-content: flex-end;
                 text-decoration: none;
             }
 
             .linkitem__ {
                 padding-left: 0.5rem;
-                padding-right: 2rem;
+                padding-right: 3rem;
             }
 
             a {

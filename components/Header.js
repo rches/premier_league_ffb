@@ -14,7 +14,7 @@ const Header = () => (
         </div>
         <div className="linkitem__">
             <Link href="/blog">
-                <a>Blog</a>
+                <a>News and Notes</a>
             </Link>
         </div>
         <style jsx>{`

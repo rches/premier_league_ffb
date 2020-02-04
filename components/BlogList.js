@@ -6,29 +6,74 @@ const BlogList = props => {
     return (
         <>
             <ul>
-                {props.allBlogs.map(post => (
-                    <Link
-                        key={post.slug}
-                        href={{ pathname: `/blog/${post.slug}` }}
-                    >
-                        <a>
-                            <li>
-                                <div className="post__info">
-                                    <h3>{post.document.data.title}</h3>
-                                    <p>
-                                        <ReactMarkdown
-                                            source={`${post.document.content.slice(
-                                                0,
-                                                150
-                                            )}...`}
-                                        />
-                                    </p>
-                                </div>
-                            </li>
-                        </a>
-                    </Link>
-                ))}
+                <div className="card__grid__">
+                    {props.allBlogs
+                        .map(post => (
+                            <Link
+                                key={post.slug}
+                                href={{ pathname: `/blog/${post.slug}` }}
+                                date={post.document.data.date}
+                            >
+                                <a className="link__">
+                                    <div className="card__">
+                                        <li>
+                                            <div>
+                                                <h3>
+                                                    {post.document.data.title}
+                                                </h3>
+                                                <h6>
+                                                    {
+                                                        post.document.data
+                                                            .category
+                                                    }
+                                                </h6>
+                                                <div>
+                                                    <ReactMarkdown
+                                                        source={`${post.document.content.slice(
+                                                            0,
+                                                            150
+                                                        )}...`}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </a>
+                            </Link>
+                        ))
+                        .sort(function(a, b) {
+                            return (
+                                new Date(b.props.date) - new Date(a.props.date)
+                            );
+                        })}
+                </div>
             </ul>
+            <style jsx>{`
+                .card__grid__ {
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                    list-style: none;
+                }
+
+                a.link__ {
+                    text-decoration: none;
+                    width: 20vw;
+                    height: 50vh;
+                }
+
+                .card__ {
+                    position: relative;
+                    background: #333;
+                    width: 20vw;
+                    height: 50vh;
+                    border-radius: 6px;
+                    padding: 2rem;
+                    color: #aaa;
+                    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2),
+                        0 0 1rem rgba(0, 0, 0, 0.2);
+                    overflow: hidden;
+                }
+            `}</style>
         </>
     );
 };

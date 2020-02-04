@@ -20,15 +20,24 @@ const Header = () => (
         <style jsx>{`
             .navbar__ {
                 width: 100vw;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0px;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
                 text-decoration: none;
+                background: #212121;
+                margin-top: -1rem;
+                margin-left: -0.5rem;
+                margin-right: 0rem;
+                padding: 1rem;
+                z-index: 5;
             }
 
             .linkitem__ {
-                padding-left: 0.5rem;
-                padding-right: 3rem;
+                padding-left: 2rem;
+                padding-right: 5rem;
             }
 
             a {

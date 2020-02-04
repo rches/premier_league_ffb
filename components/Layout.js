@@ -12,10 +12,6 @@ const Layout = props => (
             body {
                 font-family: "Muli", sans-serif;
                 overflow-x: hidden;
-
-                 {
-                    /* background: #1f1f1f; */
-                }
             }
 
             .bg__ {

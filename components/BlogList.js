@@ -50,8 +50,9 @@ const BlogList = props => {
             </ul>
             <style jsx>{`
                 .card__grid__ {
-                    display: grid;
-                    grid-template-columns: auto auto auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: space-around;
                     list-style: none;
                 }
 
@@ -59,6 +60,7 @@ const BlogList = props => {
                     text-decoration: none;
                     width: 20vw;
                     height: 50vh;
+                    margin: 3rem;
                 }
 
                 .card__ {

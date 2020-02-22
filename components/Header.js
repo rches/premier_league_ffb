@@ -4,17 +4,17 @@ const Header = () => (
     <div className="navbar__">
         <div className="linkitem__">
             <Link href="/">
-                <a>Home</a>
+                <a>H</a>
             </Link>
         </div>
         <div className="linkitem__">
             <Link href="/about">
-                <a>About</a>
+                <a>A</a>
             </Link>
         </div>
         <div className="linkitem__">
             <Link href="/blog">
-                <a>News and Notes</a>
+                <a>N</a>
             </Link>
         </div>
         <style jsx>{`
@@ -36,8 +36,10 @@ const Header = () => (
             }
 
             .linkitem__ {
-                padding-left: 2rem;
-                padding-right: 5rem;
+                padding: 1rem;
+                margin-right: 1rem;
+                border: 2px solid #fff;
+                border-radius: 15%;
             }
 
             a {

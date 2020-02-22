@@ -83,7 +83,7 @@ export default function Index() {
                         align-items: center;
                         justify-content: center;
                         box-shadow: inset 0px 0px 150px 75px #212121;
-
+                        border-radius: 15px 15px 0px 0px;
                         padding-top: 50px;
                     }
 

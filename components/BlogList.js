@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 const BlogList = props => {
     let leadText;
     return (
-        <>
+        <div>
             <ul>
                 <div className="card__grid__">
                     {props.allBlogs
@@ -52,15 +52,17 @@ const BlogList = props => {
                 .card__grid__ {
                     display: flex;
                     flex-wrap: wrap;
-                    align-content: space-around;
+                    align-content: space-evenly;
+                    justify-content: center;
                     list-style: none;
+                    margin-left: -5rem;
                 }
 
                 a.link__ {
                     text-decoration: none;
                     width: 20vw;
                     height: 50vh;
-                    margin: 3rem;
+                    margin: 5rem;
                 }
 
                 .card__ {
@@ -76,7 +78,7 @@ const BlogList = props => {
                     overflow: hidden;
                 }
             `}</style>
-        </>
+        </div>
     );
 };
 

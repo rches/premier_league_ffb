@@ -1,33 +1,51 @@
 import Layout from "../components/Layout";
-import fetch from "node-fetch";
+import Link from "next/link";
+import fetch from "isomorphic-unfetch";
+const cheerio = require("cheerio");
 
-const league_id = "906945";
+const League = props => (
+    <Layout>
+        <div>
+            <ul>
+                {props.teamData.map((el, i) => (
+                    <li key={i}>
+                        <a href={el.link}>
+                            {" "}
+                            Name: {el.name} | Rank: {el.rank}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </Layout>
+);
 
-const League = info => {
-    return (
-        <Layout>
-            <h1>
-                The value of info is:
-                {info[0]}
-            </h1>
-        </Layout>
-    );
-};
+League.getInitialProps = async function() {
+    const res = await fetch("https://archive.fantasysports.yahoo.com/nfl/2019/906945?lhst=stand#lhststand");
+    const data = await res.text();
+    const $ = cheerio.load(data);
+    const teamData = [];
 
-export async function getStaticProps() {
-    // Call an external API endpoint to get data.
-    //TODO - need to understand how to pass tokens/oauth information along with node-fetch
+    const getTeamName = $("table#standingstable tbody tr").each(function(i, el) {
+        teamData[i] = {
+            name: $(el)
+                .children(".team")
+                .text(),
+            rank: $(el)
+                .children(".first")
+                .text(),
+            link: `https://archive.fantasysports.yahoo.com${$(el)
+                .children(".team")
+                .children("a")
+                .attr("href")}`
+        };
+    });
 
-    const res = await fetch(`https://fantasysports.yahooapis.com/fantasy/v2/league/nfl.l.${league_id}`);
-    const info = await res.json();
-
-    console.log(info);
+    console.log(`Show data fetched. Count: ${teamData}`);
 
     return {
-        props: {
-            info
-        }
+        teamData: teamData
     };
-}
+};
 
 export default League;

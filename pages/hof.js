@@ -10,7 +10,6 @@ const HOF = props => (
                 {props.teamData.map((el, i) => (
                     <li key={i}>
                         <a href={el.link}>
-                            {" "}
                             Name: {el.name} | Rank: {el.rank} | Record: {el.record}
                         </a>
                     </li>
